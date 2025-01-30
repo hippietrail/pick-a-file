@@ -8,10 +8,10 @@ use std::time::{SystemTime, UNIX_EPOCH};
 fn main() {
     // Collect command line arguments
     let args: Vec<String> = env::args().collect();
-    let use_stdout_only = args.contains(&"--stdout-only".to_string());
+    let use_stdout_only = args.contains(&"--bare".to_string());
 
     if args.len() < 3 || (args.len() > 3 && !use_stdout_only) || (args.len() > 4 && use_stdout_only) {
-        eprintln!("Usage: {} [--stdout-only] <path> <file_extension>", args[0]);
+        eprintln!("Usage: {} [--bare] <path> <file_extension>", args[0]);
         std::process::exit(1);
     }
 

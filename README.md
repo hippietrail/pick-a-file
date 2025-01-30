@@ -5,12 +5,12 @@
 ## Features
 
 - **File Selection**: Choose a file from a specified directory that matches a given file extension.
-- **Output Control**: Use the `--stdout-only` flag to return only the selected file's path to `stdout`. This is great for command substitution or integration into scripts.
+- **Output Control**: Use the `--bare` flag to return only the selected file's path to `stdout`. This is great for command substitution or integration into scripts.
 
 ## Usage
 
 ```bash
-cargo run [--stdout-only] <path> <file_extension>
+cargo run [--bare] <path> <file_extension>
 ```
 
 - `<path>`: The directory to search for files.
@@ -27,7 +27,7 @@ cargo run /path/to/documents .txt
 To return just the bare path of the selected file:
 
 ```bash
-cargo run --stdout-only /path/to/documents .txt
+cargo run --bare /path/to/documents .txt
 ```
 
 ## Integration with Unix/Linux Terminals
@@ -43,13 +43,13 @@ This tool is particularly handy when used in conjunction with Unix(-like) termin
 
 2. **Command Substitution**: Use command substitution to pass the selected file as an argument to another command. For example, if you want to open a random `.txt` file with `nano`:
    ```bash
-   nano $(pick-a-file ~/documents .txt)
+   nano $(pick-a-file --bare ~/documents .txt)
    ```
 
 3. **Scripting**: Incorporate `pick-a-file` into shell scripts for automated tasks. For instance, you can create a script that processes a random image file:
    ```bash
    #!/bin/bash
-   image=$(pick-a-file ~/images .jpg)
+   image=$(pick-a-file --bare ~/images .jpg)
    display "$image"  # Assuming you have a command to display images
    ```
 
