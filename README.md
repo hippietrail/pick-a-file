@@ -43,13 +43,20 @@ This tool is particularly handy when used in conjunction with Unix(-like) termin
 
 2. **Command Substitution**: Use command substitution to pass the selected file as an argument to another command. For example, if you want to open a random `.txt` file with `nano`:
    ```bash
-   nano $(pick-a-file --bare ~/documents .txt)
+   nano "$(pick-a-file --bare ~/documents .txt)"
    ```
+
+Or, if you prefer the backtick syntax:
+   ```bash
+   nano "`pick-a-file --bare ~/documents .txt`"
+   ```
+
+Note that double quotes will make sure paths with spaces are handled correctly.
 
 3. **Scripting**: Incorporate `pick-a-file` into shell scripts for automated tasks. For instance, you can create a script that processes a random image file:
    ```bash
    #!/bin/bash
-   image=$(pick-a-file --bare ~/images .jpg)
+   image="$(pick-a-file --bare ~/images .jpg)"
    display "$image"  # Assuming you have a command to display images
    ```
 
