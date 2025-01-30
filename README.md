@@ -1,33 +1,33 @@
 # Pick-a-File
 
-`pick-a-file` is a command-line utility written in Rust that allows users to select a file from a specified directory based on a given file extension. It supports an optional command-line switch to control output behavior.
+`pick-a-file` is a command-line utility written in Rust that allows users to select a file from a specified directory based on one or more given file extensions. It supports an optional command-line switch to control output behavior.
 
 ## Features
 
-- **File Selection**: Choose a file from a specified directory that matches a given file extension.
+- **File Selection**: Choose a file from a specified directory that matches one or more given file extensions.
 - **Output Control**: Use the `--bare` flag to return only the selected file's path to `stdout`. This is great for command substitution or integration into scripts.
 
 ## Usage
 
 ```bash
-cargo run [--bare] <path> <file_extension>
+cargo run [--bare] <path> <file_extension1> <file_extension2> ...
 ```
 
 - `<path>`: The directory to search for files.
-- `<file_extension>`: The file extension to filter files by (e.g., `.txt`).
+- `<file_extension1>`, `<file_extension2>`: The file extensions to filter files by (e.g., `.txt`, `.jpg`, `.git`).
 
 ### Example
 
-To run the program and select a `.txt` file from the `documents` directory:
+To run the program and select files with `.txt` and `.jpg` extensions from the `documents` directory:
 
 ```bash
-cargo run /path/to/documents .txt
+cargo run /path/to/documents .txt .jpg
 ```
 
-To return just the bare path of the selected file:
+To return only the selected file's path using the `--bare` option:
 
 ```bash
-cargo run --bare /path/to/documents .txt
+cargo run --bare /path/to/documents .txt .jpg
 ```
 
 ## Integration with Unix/Linux Terminals
