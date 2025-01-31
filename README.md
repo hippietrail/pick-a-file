@@ -1,4 +1,5 @@
 # Pick-a-File
+![dream_n2bg1lpu56d](https://github.com/user-attachments/assets/f3ea0e92-b079-4977-b88a-955f981aa0e3)
 
 `pick-a-file` is a command-line utility written in Rust that allows users to select a random file from a specified directory based on one or more given file extensions. It supports an optional command-line switch to control output behavior.
 
